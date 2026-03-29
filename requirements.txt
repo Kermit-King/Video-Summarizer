@@ -1,1 +1,16 @@
-fastapi uvicorn openai youtube-transcript-api python-dotenv
+# Web Framework & Server
+fastapi==0.115.*
+uvicorn[standard]==0.34.*
+
+# AI & LLM (The New Standard)
+google-genai>=1.69.0
+# openai is no longer strictly needed if you are fully on Gemini, 
+# but keep it if you are using other OpenAI-compatible services.
+openai>=1.60.0
+
+# YouTube Data Extraction
+youtube-transcript-api==1.2.4
+
+# Environment & Utilities
+python-dotenv==1.0.*
+pydantic>=2.10.0
