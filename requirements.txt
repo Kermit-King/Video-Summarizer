@@ -1,0 +1,1 @@
+fastapi uvicorn openai youtube-transcript-api python-dotenv
