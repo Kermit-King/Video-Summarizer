@@ -1,11 +1,24 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from utils import get_video_id, get_transcript, summarize_text
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="YT Summarizer API")
 
 class VideoRequest(BaseModel):
     url: str
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # In production, replace with your actual domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/")
+def read_root():
+    return {"status": "YT Summarizer API is running"}
 
 @app.post("/summarize")
 async def summarize_video(request: VideoRequest):
@@ -21,6 +34,8 @@ async def summarize_video(request: VideoRequest):
         "video_id": video_id,
         "summary": summary
     }
+
+
 
 if __name__ == "__main__":
     import uvicorn
