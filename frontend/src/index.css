@@ -57,7 +57,7 @@ body {
 }
 
 #root {
-  width: 1126px;
+  /* width: 1126px; */
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -110,4 +110,15 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+@keyframes aura-pulse {
+  0%, 100% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.8); /* This makes it much bigger */
+    opacity: 1;            /* This makes it brighter */
+  }
 }
